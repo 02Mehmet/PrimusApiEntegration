@@ -1,13 +1,12 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PrimusAPI.Models;
+using ShipPrimus;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ShipPrimus
@@ -16,8 +15,8 @@ namespace ShipPrimus
     {
         public static async Task<QuoteResponse> PrimusAPIGetDataPostAsync(QuoteRequest quoteRequest)
         {
-            var username = "APITest@quickload.com";
-            var password = "APITest";
+            var username = "************";
+            var password = "************";
             var loginURL = "https://sandbox-api-applet.shipprimus.com/api/v1/login";
             var quoteURL = "https://sandbox-api-applet.shipprimus.com/applet/v1/rate/multiple";
 
@@ -26,6 +25,7 @@ namespace ShipPrimus
 
             return result;
         }
+
 
         public static string URLGenerator(QuoteRequest quoteRequest,string quoteURL)
         {
