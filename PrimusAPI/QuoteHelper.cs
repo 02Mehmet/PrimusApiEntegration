@@ -163,5 +163,39 @@ namespace ShipPrimus
                 }
             }
         }
+
+        public static object CreateShipment(string url, string token, JObject jsonObject)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                HttpContent content = new StringContent(jsonObject.ToString());
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                var request = client.PostAsync(url, content).Result;
+
+                var response = request.Content.ReadAsStringAsync().Result;
+
+                JObject jresponse = JObject.Parse(response);
+                if (request.StatusCode == System.Net.HttpStatusCode.OK && jresponse["data"] != null)
+                {
+                    var quoteSaveResult = JsonConvert.DeserializeObject<object>(response);
+
+                    return quoteSaveResult;
+                }
+                else
+                {
+                    if (jresponse["error"] != null && jresponse["error"]["message"] != null)
+                    {
+                        throw new Exception(jresponse["error"]["message"].ToString());
+                    }
+                    else
+                    {
+                        throw new Exception("Error: " + response ?? " Quote not booked");
+                    }
+                }
+            }
+        }
+
     }
 }

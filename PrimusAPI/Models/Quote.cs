@@ -100,4 +100,59 @@ namespace PrimusAPI.Models
         public string quoteNumber { get; set; }
         public string url { get; set; }
     }
+
+    public class CreateShipmentRequest
+    {
+        public string thirdPartyReferenceNumber { get; set; }
+        public string PRONmbr { get; set; }
+        public string BOLNmbr { get; set; }
+        public string BOLPrefix { get; set; }
+        public Location shipper { get; set; }
+        public Location consignee { get; set; }
+        public string quoteNumber { get; set; }
+        public JArray lineItems { get; set; }
+        public string UOM { get; set; }
+        public List<string> accessorialsList { get; set; }
+        public int insuranceAmount { get; set; }
+        public bool insuranceFreight { get; set; }
+        public bool insuranceAddOn { get; set; }
+        public BrokerInformation brokerInformation { get; set; }
+        public LocationInformation pickupInformation { get; set; }
+        public LocationInformation deliveryInformation { get; set; }
+        public string BOLInstructions { get; set; }
+        public string shipmentNotes { get; set; }
+    }
+
+    public class Location
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string referenceNumber { get; set; }
+        public string address1 { get; set; }
+        public string address2 { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zipCode { get; set; }
+        public string country { get; set; }
+        public string phone { get; set; }
+        public string fax { get; set; }
+        public string email { get; set; }
+        public string contact { get; set; }
+        public string contactPhone { get; set; }
+    }
+    public class BrokerInformation
+    {
+        public string name { get; set; }
+        public string contact { get; set; }
+        public string phone { get; set; }
+        public string notes { get; set; }
+    }
+
+    public class LocationInformation
+    {
+        public string date { get; set; }
+        public string type { get; set; }
+        public string fromTime { get; set; }
+        public string toTime { get; set; }
+    }
 }
