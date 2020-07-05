@@ -7,24 +7,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ShipPrimus
 {
     public class QuoteHelper
     {
-        public static async Task<QuoteResponse> PrimusAPIGetDataPostAsync(QuoteRequest quoteRequest)
-        {
-            var username = "************";
-            var password = "************";
-            var loginURL = "https://sandbox-api-applet.shipprimus.com/api/v1/login";
-            var quoteURL = "https://sandbox-api-applet.shipprimus.com/applet/v1/rate/multiple";
+        //public static async Task<QuoteResponse> PrimusAPIGetDataPostAsync(QuoteRequest quoteRequest,string token)
+        //{
 
-            var token = await GetBearerTokenPostAsync(username, password, loginURL);
-            var result = await GetQuotes(quoteRequest, token, quoteURL);
 
-            return result;
-        }
+
+        //    var result = await GetQuotes(quoteRequest, token, quoteURL);
+        //    var resultSave = SaveQuote(token, quoteSaveURL, jrequest);
+
+        //    return result;
+        //}
 
 
         public static string URLGenerator(QuoteRequest quoteRequest,string quoteURL)
@@ -132,5 +131,37 @@ namespace ShipPrimus
 
         }
 
+        public static SaveQuoteResponse SaveQuote(string url,string token, JObject jsonObject)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                HttpContent content = new StringContent(jsonObject.ToString());
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                var request = client.PostAsync(url, content).Result;
+
+                var response = request.Content.ReadAsStringAsync().Result;
+
+                JObject jresponse = JObject.Parse(response);
+                if (request.StatusCode == System.Net.HttpStatusCode.OK && jresponse["data"] != null)
+                {
+                    var quoteSaveResult = JsonConvert.DeserializeObject<SaveQuoteResponse>(response);
+
+                    return quoteSaveResult;
+                }
+                else
+                {
+                    if (jresponse["error"] != null && jresponse["error"]["message"] != null)
+                    {
+                        throw new Exception(jresponse["error"]["message"].ToString());
+                    }
+                    else
+                    {
+                        throw new Exception("Error: " + response ?? " Quote not saved");
+                    }
+                }
+            }
+        }
     }
 }

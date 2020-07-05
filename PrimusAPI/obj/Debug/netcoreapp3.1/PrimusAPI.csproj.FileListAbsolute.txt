@@ -1,0 +1,13 @@
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.exe
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.deps.json
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.runtimeconfig.json
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.runtimeconfig.dev.json
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.dll
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\PrimusAPI.pdb
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.csprojAssemblyReference.cache
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.AssemblyInfoInputs.cache
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.AssemblyInfo.cs
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.csproj.CopyComplete
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.dll
+C:\Users\qlteq\source\deneme\PrimusApiEntegration\PrimusAPI\obj\Debug\netcoreapp3.1\PrimusAPI.pdb

@@ -74,4 +74,30 @@ namespace PrimusAPI.Models
         public string name { get; set; }
         public decimal total { get; set; }
     }
+
+    public class SaveQuoteRequest
+    {
+        public string rateId { get; set; }
+        public int originShippingLocationId { get; set; }
+        public int destinationShippingLocationId { get; set; }
+        public decimal laneDistance { get; set; }
+    }
+
+    public class SaveQuoteResponse
+    {
+        public SaveQuote data { get; set; }
+    }
+
+    public class SaveQuote
+    {
+        public SaveQuoteResults results { get; set; }
+        public string message { get; set; }
+    }
+
+    public class SaveQuoteResults
+    {
+        public int quoteId { get; set; }
+        public string quoteNumber { get; set; }
+        public string url { get; set; }
+    }
 }
